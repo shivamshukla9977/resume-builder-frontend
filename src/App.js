@@ -1,37 +1,52 @@
 // src/App.js
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import UserProfile from './UserProfile';
-import { getUsers } from './services/api';
+import { getUserById } from './services/api';
 
 const App = () => {
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+  return (
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route
+            path="/user/:id"
+            element={<UserDetail />}
+          />
+          <Route
+            path="/"
+            element={<div>Home Page</div>}
+          />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
 
-  useEffect(() => {
+const UserDetail = () => {
+  const [user, setUser] = React.useState(null);
+  const [error, setError] = React.useState(null);
+  const { id } = useParams();
+
+  React.useEffect(() => {
     const fetchUser = async () => {
       try {
-        const data = await getUsers();
-        console.log('Fetched user:', data);
-        if (Array.isArray(data) && data.length > 0) {
-          setUser(data[0]); // Assuming you want to display the first user
-        } else {
-          setError(new Error('No user data found'));
-        }
+        const data = await getUserById(id);
+        setUser(data);
       } catch (error) {
-        console.error('Error fetching user:', error);
         setError(error);
       }
     };
 
     fetchUser();
-  }, []);
+  }, [id]);
 
   if (error) {
     return <div>Error fetching user: {error.message}</div>;
   }
 
   return (
-    <div className="App">
+    <div>
       {user ? <UserProfile user={user} /> : <div>Loading...</div>}
     </div>
   );
