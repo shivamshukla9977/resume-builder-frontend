@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+/* src/App.css */
+.user-profile {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.user-profile h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.user-profile h2 {
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.user-profile ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-profile li {
+  margin-bottom: 10px;
+}
+
+.user-profile a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.user-profile a:hover {
+  text-decoration: underline;
+}
+

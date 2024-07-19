@@ -1,0 +1,18 @@
+.technical-skills {
+  margin-bottom: 20px;
+}
+
+.technical-skills h3 {
+  font-size: 1.5em;
+  border-bottom: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.technical-skills ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.technical-skills ul li {
+  margin-bottom: 5px;
+}

@@ -1,0 +1,33 @@
+.work-experience {
+  flex: 2;
+}
+
+.work-experience h3 {
+  font-size: 1.5em;
+  border-bottom: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.job {
+  margin-bottom: 20px;
+}
+
+.job h4 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.job p {
+  font-size: 1em;
+  color: grey;
+  margin: 5px 0;
+}
+
+.job ul {
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+.job ul li {
+  margin-bottom: 5px;
+}

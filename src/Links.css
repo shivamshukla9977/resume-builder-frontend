@@ -1,0 +1,22 @@
+.link {
+  margin-bottom: 20px;
+}
+
+.link h3 {
+  font-size: 1.5em;
+  border-bottom: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.link ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.link ul li {
+  display: inline-block;
+  background-color: #f0f0f0;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}

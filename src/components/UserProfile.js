@@ -4,10 +4,6 @@ import React from 'react';
 const UserProfile = ({ user }) => {
   return (
     <div className="user-profile">
-      <h1>{user.first_name} {user.last_name}</h1>
-      <p><strong>Email:</strong> {user.email}</p>
-      <p><strong>Location:</strong> {user.city}, {user.state}, {user.country}</p>
-
       <h2>Educations</h2>
       <ul>
         {user.educations.map(education => (

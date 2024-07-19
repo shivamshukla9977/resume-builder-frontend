@@ -1,0 +1,21 @@
+.project {
+  margin-bottom: 20px;
+}
+
+.project h3 {
+  font-size: 1.5em;
+  border-bottom: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.project ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.project ul li {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
