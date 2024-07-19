@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useEffect, useState } from 'react';
+import UserProfile from './UserProfile';
+import { getUsers } from './services/api';
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const data = await getUsers();
+        console.log('Fetched user:', data);
+        if (Array.isArray(data) && data.length > 0) {
+          setUser(data[0]); // Assuming you want to display the first user
+        } else {
+          setError(new Error('No user data found'));
+        }
+      } catch (error) {
+        console.error('Error fetching user:', error);
+        setError(error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  if (error) {
+    return <div>Error fetching user: {error.message}</div>;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {user ? <UserProfile user={user} /> : <div>Loading...</div>}
     </div>
   );
-}
+};
 
 export default App;
