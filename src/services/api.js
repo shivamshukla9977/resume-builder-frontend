@@ -13,5 +13,16 @@ export const getUserById = async (id) => {
   }
 };
 
+export const getAllUser = async (search = '') => {
+  try {
+    const url = search ? `${API_URL}/users?search=${search}` : `${API_URL}/users`
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    throw error;
+  }
+};
+
 // Similarly, create functions for other endpoints
 
